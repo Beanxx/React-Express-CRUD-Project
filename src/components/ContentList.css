@@ -1,5 +1,5 @@
 .list-container {
-  width: 35vw;
+  width: 40vw;
   height: 60vh;
   border: 1px solid gray;
 }
@@ -35,6 +35,7 @@
   text-align: center;
 }
 
+
 .write-button {
   background-color: white;
   color: black;
@@ -61,4 +62,8 @@ h2 {
 
 .logo-span {
   margin-left: 1rem;
+}
+
+.table-id {
+  width: 1px;
 }

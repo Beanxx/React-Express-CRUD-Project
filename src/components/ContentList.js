@@ -1,7 +1,9 @@
 import React from "react";
+import ContentItem from "./ContentItem";
 import "./ContentList.css";
 
-function ContentList() {
+function ContentList({ diaryList }) {
+  console.log(diaryList);
   return (
     <div className="list-container">
       <div className="list-header">
@@ -12,14 +14,14 @@ function ContentList() {
       <div className="table">
         <div className="row-header">
           <div className="col">번호</div>
+          <div className="col">작성자</div>
           <div className="col">제목</div>
           <div className="col">날짜</div>
         </div>
-        <div className="row">
-          <div className="col">1</div>
-          <div className="col">제목입니다</div>
-          <div className="col">22.06.18</div>
-        </div>
+
+        {diaryList.map((item) => (
+          <ContentItem key={item.id} {...item} />
+        ))}
       </div>
     </div>
   );
