@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
 .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  font-family: 'Gamja Flower', cursive;
 }
 
 .App-logo {

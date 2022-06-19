@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import ContentItem from "./ContentItem";
 import "./ContentList.css";
 
-function ContentList({ diaryList }) {
-  console.log(diaryList);
+function ContentList({ diaryList, onCreateClick, onDelete, handleTitleClick }) {
+  // const [filteredDiary, setFilteredDiary] = useState(diaryList);
+  // const [id, setId] = useState(1);
+  // const [isFiltered, setIsFiltered] = useState(false);
+
   return (
     <div className="list-container">
       <div className="list-header">
         <span className="logo-span">🐾</span>
-        <h2>목록</h2>
-        <button className="write-button">글쓰기</button>
+        <h2>List</h2>
+        <button className="write-button" onClick={onCreateClick}>
+          글쓰기
+        </button>
       </div>
       <div className="table">
         <div className="row-header">
@@ -20,7 +25,12 @@ function ContentList({ diaryList }) {
         </div>
 
         {diaryList.map((item) => (
-          <ContentItem key={item.id} {...item} />
+          <ContentItem
+            key={item.id}
+            {...item}
+            handleTitleClick={handleTitleClick}
+            onDelete={() => onDelete(item.id)}
+          />
         ))}
       </div>
     </div>

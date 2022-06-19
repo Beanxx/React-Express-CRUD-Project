@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+* {
+  font-family: 'Gamja Flower', cursive;
+}
+
 .list-container {
   width: 40vw;
   height: 60vh;
   border: 1px solid gray;
+  border-radius: 2%;
 }
 
 .list-header {
@@ -9,11 +16,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin: 0 1.5rem;
 }
 
 .table {
   display: table;
   width: 100%;
+  font-size: 1.3rem;
   /* border: 1px solid gray; */
 
 }
@@ -44,7 +53,7 @@
   width: 4.5rem;
   height: 2.5rem;
   transition-duration: 0.5s;
-  font-size: 1rem;
+  font-size: 1.3rem;
   float: right;
   margin-right: 1rem;
 }
