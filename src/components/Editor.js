@@ -50,8 +50,8 @@ function Editor({
     setIsClick(false);
   };
 
+  // title 눌렀을 때 id가 같은 data filtering
   const filtered = diaryList.filter((item) => item.id === Number(ids));
-  // console.log(filtered);
 
   return (
     <div className="editor-container">
@@ -78,8 +78,8 @@ function Editor({
         </div>
       ) : isTitleClick ? (
         <div className="editor-box">
-          <h1 className="show-title">{filtered[0].title}</h1>
-          <div className="show-content">{filtered[0].content}</div>
+          <h1 className="show-title">{filtered[0]?.title}</h1>
+          <div className="show-content">{filtered[0]?.content}</div>
         </div>
       ) : (
         <div className="editor-box">
@@ -97,7 +97,7 @@ function Editor({
             저장
           </button>
         </div>
-      ) : (
+      ) : isTitleClick ? (
         <div className="button-container">
           <button
             className="editor-button"
@@ -111,6 +111,8 @@ function Editor({
             삭제
           </button>
         </div>
+      ) : (
+        <div></div>
       )}
     </div>
   );

@@ -34,9 +34,9 @@ function App() {
 
   // 글 삭제
   const onDelete = () => {
-    console.log(id);
     const deletedDiary = data.filter((item) => item.id !== Number(id));
     setData(deletedDiary);
+    setIsTitleClick(false);
   };
 
   const handleTitleClick = (e) => {
