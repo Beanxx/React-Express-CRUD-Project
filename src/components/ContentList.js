@@ -2,11 +2,13 @@ import React from "react";
 import ContentItem from "./ContentItem";
 import "./ContentList.css";
 
-function ContentList({ diaryList, onCreateClick, onDelete, handleTitleClick }) {
-  // const [filteredDiary, setFilteredDiary] = useState(diaryList);
-  // const [id, setId] = useState(1);
-  // const [isFiltered, setIsFiltered] = useState(false);
-
+function ContentList({
+  diaryList,
+  onCreateClick,
+  onDelete,
+  handleTitleClick,
+  onEdit,
+}) {
   return (
     <div className="list-container">
       <div className="list-header">
@@ -30,6 +32,7 @@ function ContentList({ diaryList, onCreateClick, onDelete, handleTitleClick }) {
             {...item}
             handleTitleClick={handleTitleClick}
             onDelete={() => onDelete(item.id)}
+            onEdit={onEdit}
           />
         ))}
       </div>

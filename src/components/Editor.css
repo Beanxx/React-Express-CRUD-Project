@@ -58,6 +58,13 @@
 }
 
 
+.show-username {
+  height: 5%;
+  text-align:right;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
 .editor-button {
   background-color: white;
   color: black;
@@ -67,7 +74,7 @@
   height: 3rem;
   transition-duration: 0.4s;
   margin: 0 1rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 
