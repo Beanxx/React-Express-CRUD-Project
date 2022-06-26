@@ -8,7 +8,8 @@ function ContentItem({ id, username, title, createdAt, handleTitleClick }) {
       <div className="col" onClick={handleTitleClick} id={id}>
         {title}
       </div>
-      <div className="col">{new Date(createdAt).toLocaleDateString()}</div>
+      <div className="col">{createdAt}</div>
+      {/* new Date(createdAt).toLocaleDateString() */}
     </div>
   );
 }

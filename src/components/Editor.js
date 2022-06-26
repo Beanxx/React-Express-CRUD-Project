@@ -127,9 +127,9 @@ function Editor({
         </div>
       ) : (
         <div className="editor-box">
-          <h1 className="show-title">{diaryList[0].title}</h1>
-          <div className="show-username">{diaryList[0].username}</div>
-          <div className="show-content">{diaryList[0].content}</div>
+          <h1 className="show-title">{diaryList[0]?.title}</h1>
+          <div className="show-username">{diaryList[0]?.username}</div>
+          <div className="show-content">{diaryList[0]?.content}</div>
         </div>
       )}
 

@@ -1,11 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 import ContentList from "./components/ContentList";
 import Editor from "./components/Editor";
-import dummy from "./resource/dummyData";
 
 function App() {
-  const [data, setData] = useState(dummy);
+  const url = "http://localhost:3001/diary";
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
 
   // 새로운 항목 추가 id
   const dataId = useRef(4);
@@ -23,7 +29,6 @@ function App() {
   // 수정할 내용 상태
   const [editTitle, setEditTitle] = useState(data.title);
   const [editContent, setEditContent] = useState(data.content);
-  console.log(editContent);
 
   // 수정 취소
   const handleQuitEdit = () => {
@@ -33,7 +38,7 @@ function App() {
 
   // 글쓰기
   const onCreate = (title, content) => {
-    const createdAt = new Date();
+    const createdAt = new Date().toLocaleDateString();
     const newItem = {
       id: dataId.current,
       username: "SooBin",
