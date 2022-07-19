@@ -8,34 +8,62 @@ function ContentList({
   onDelete,
   handleTitleClick,
   onEdit,
+  ids,
+  isTitleClick,
+  setIsTitleClick,
 }) {
+  const filtered = diaryList.filter((item) => item.id === Number(ids));
+
   return (
     <div className="list-container">
-      <div className="list-header">
-        <span className="logo-span">🐾</span>
-        <h2>List</h2>
-        <button className="write-button" onClick={onCreateClick}>
-          글쓰기
-        </button>
-      </div>
-      <div className="table">
-        <div className="row-header">
-          <div className="col">번호</div>
-          <div className="col">작성자</div>
-          <div className="col">제목</div>
-          <div className="col">날짜</div>
+      {isTitleClick ? (
+        <div>
+          <div className="editor-box">
+            <h1 className="show-title">{filtered[0]?.title}</h1>
+            <div className="show-username">{filtered[0]?.username}</div>
+            <div className="show-content">{filtered[0]?.content}</div>
+          </div>
+          <div className="button-container">
+            <button className="editor-button" onClick={onDelete}>
+              삭제
+            </button>
+            <button
+              className="editor-button"
+              onClick={() => setIsTitleClick(false)}
+            >
+              뒤로가기
+            </button>
+          </div>
         </div>
+      ) : (
+        <div>
+          <div className="list-header">
+            {/* <span className="logo-span">🐾</span> */}
+            <h2>Feeling Diary List</h2>
+            {/* <button className="write-button" onClick={onCreateClick}>
+          글쓰기
+        </button> */}
+          </div>
+          <div className="table">
+            <div className="row-header">
+              <div className="col">No</div>
+              {/* <div className="col">작성자</div> */}
+              <div className="col">Title</div>
+              <div className="col">Date</div>
+            </div>
 
-        {diaryList.map((item) => (
-          <ContentItem
-            key={item.id}
-            {...item}
-            handleTitleClick={handleTitleClick}
-            onDelete={() => onDelete(item.id)}
-            onEdit={onEdit}
-          />
-        ))}
-      </div>
+            {diaryList.map((item) => (
+              <ContentItem
+                key={item.id}
+                {...item}
+                handleTitleClick={handleTitleClick}
+                onDelete={() => onDelete(item.id)}
+                onEdit={onEdit}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

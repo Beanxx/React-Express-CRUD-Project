@@ -1,9 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
 import ContentList from "./components/ContentList";
 import Editor from "./components/Editor";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import styled from "styled-components";
 
 function App() {
+  const Container = styled.div`
+    display: flex; ;
+  `;
+
   const url = "http://localhost:3001/diary";
   const [data, setData] = useState([]);
 
@@ -14,7 +23,7 @@ function App() {
   }, []);
 
   // 새로운 항목 추가 id
-  const dataId = useRef(4);
+  const dataId = useRef(1);
   const [id, setId] = useState("");
   // 글쓰기 버튼 클릭 상태
   const [isClick, setIsClick] = useState(false);
@@ -41,7 +50,7 @@ function App() {
     const createdAt = new Date().toLocaleDateString();
     const newItem = {
       id: dataId.current,
-      username: "SooBin",
+      // username: "SooBin",
       title,
       content,
       createdAt,
@@ -60,6 +69,7 @@ function App() {
     const deletedDiary = data.filter((item) => item.id !== Number(id));
     setData(deletedDiary);
     setIsTitleClick(false);
+    alert("글이 삭제되었습니다.");
   };
 
   // 글 수정 이벤트
@@ -81,7 +91,54 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <>
+        <Header />
+        <Container>
+          <Nav />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Editor
+                  diaryList={data}
+                  onCreate={onCreate}
+                  isClick={isClick}
+                  isTitleClick={isTitleClick}
+                  setIsClick={setIsClick}
+                  onDelete={onDelete}
+                  handleTitleClick={handleTitleClick}
+                  ids={id}
+                  isEdit={isEdit}
+                  toggleIsEdit={toggleIsEdit}
+                  handleQuitEdit={handleQuitEdit}
+                  editContent={editContent}
+                  setEditContent={setEditContent}
+                  onEdit={onEdit}
+                  editTitle={editTitle}
+                  setEditTitle={setEditTitle}
+                />
+              }
+            />
+            <Route
+              path="/list"
+              element={
+                <ContentList
+                  diaryList={data}
+                  onCreateClick={onCreateClick}
+                  onDelete={onDelete}
+                  handleTitleClick={handleTitleClick}
+                  ids={id}
+                  isTitleClick={isTitleClick}
+                  setIsTitleClick={setIsTitleClick}
+                />
+              }
+            />
+          </Routes>
+        </Container>
+        <Footer />
+      </>
+
+      {/* <header className="App-header">
         <h2>React-CRUD-Project</h2>
       </header>
       <div className="container">
@@ -109,7 +166,7 @@ function App() {
           editTitle={editTitle}
           setEditTitle={setEditTitle}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

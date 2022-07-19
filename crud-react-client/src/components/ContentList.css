@@ -5,18 +5,20 @@
 }
 
 .list-container {
-  width: 40vw;
-  height:75vh;
+  width: 60vw;
+  height:55vh;
   border: 1px solid gray;
   border-radius: 2%;
-  overflow: auto
+  overflow: auto;
+  margin-top: 250px;
+  margin-left: 200px;
 }
 
 .list-header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 1.5rem;
 }
 

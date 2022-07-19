@@ -4,7 +4,7 @@ function ContentItem({ id, username, title, createdAt, handleTitleClick }) {
   return (
     <div className="row">
       <div className="col">{id}</div>
-      <div className="col">{username}</div>
+      {/* <div className="col">{username}</div> */}
       <div className="col" onClick={handleTitleClick} id={id}>
         {title}
       </div>

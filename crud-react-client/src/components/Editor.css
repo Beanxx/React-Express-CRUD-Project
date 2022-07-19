@@ -9,9 +9,11 @@
   flex-direction: column;
   justify-content: space-around;
   border: 1px solid gray;
-  width: 35vw;
-  height: 75vh;
+  width: 60vw;
+  height:55vh;
   border-radius: 2%;
+  margin-top: 250px;
+  margin-left: 200px;
 }
 
 .editor-box {
