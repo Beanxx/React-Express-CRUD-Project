@@ -137,36 +137,6 @@ function App() {
         </Container>
         <Footer />
       </>
-
-      {/* <header className="App-header">
-        <h2>React-CRUD-Project</h2>
-      </header>
-      <div className="container">
-        <ContentList
-          diaryList={data}
-          onCreateClick={onCreateClick}
-          onDelete={onDelete}
-          handleTitleClick={handleTitleClick}
-        />
-        <Editor
-          diaryList={data}
-          onCreate={onCreate}
-          isClick={isClick}
-          isTitleClick={isTitleClick}
-          setIsClick={setIsClick}
-          onDelete={onDelete}
-          handleTitleClick={handleTitleClick}
-          ids={id}
-          isEdit={isEdit}
-          toggleIsEdit={toggleIsEdit}
-          handleQuitEdit={handleQuitEdit}
-          editContent={editContent}
-          setEditContent={setEditContent}
-          onEdit={onEdit}
-          editTitle={editTitle}
-          setEditTitle={setEditTitle}
-        />
-      </div> */}
     </div>
   );
 }

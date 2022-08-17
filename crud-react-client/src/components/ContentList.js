@@ -4,7 +4,6 @@ import "./ContentList.css";
 
 function ContentList({
   diaryList,
-  onCreateClick,
   onDelete,
   handleTitleClick,
   onEdit,
@@ -38,16 +37,11 @@ function ContentList({
       ) : (
         <div>
           <div className="list-header">
-            {/* <span className="logo-span">🐾</span> */}
             <h2>Feeling Diary List</h2>
-            {/* <button className="write-button" onClick={onCreateClick}>
-          글쓰기
-        </button> */}
           </div>
           <div className="table">
             <div className="row-header">
               <div className="col">No</div>
-              {/* <div className="col">작성자</div> */}
               <div className="col">Title</div>
               <div className="col">Date</div>
             </div>
